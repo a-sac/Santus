@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar color="favorite">
+      <ion-title text-center>
+          Histórico
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+  
+<ion-content padding>
+    <div *ngIf="history !== undefined">
+      <div *ngFor="let item of history">
+          <ion-card>
+            <ion-note item-end>
+              {{item.date}}
+            </ion-note>
+            <ion-card-header>
+              {{item.hdr}}
+            </ion-card-header>
+            <div *ngIf="item.bool !== undefined">
+              <ion-card-content *ngIf="item.bool" class="positivo">
+                SIM
+              </ion-card-content>
+              <ion-card-content *ngIf="!item.bool" class="negativo">
+                NÃO
+              </ion-card-content>
+            </div>
+            <ion-card-content *ngIf="item.cnt">
+              {{item.cnt}}
+            </ion-card-content>
+          </ion-card>
+      </div>
+    </div>
+</ion-content>
+  
